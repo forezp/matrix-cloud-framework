@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: mcf-consumer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: mcf-consumer
+server:
+  port: 8762
+
+
+
+#rate.limit.enable: true
+#rate.limit.global.num: 100
+#rate.limit.global.second: 1
+#rate.limit.services:
+#  - name: mcf-provider
+#    num: 10
+#    second: 11
+#  - name: mcf-consumer
+#    num: 23
+#    second: 11

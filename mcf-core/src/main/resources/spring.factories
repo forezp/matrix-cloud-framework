@@ -1,0 +1,5 @@
+## AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.forezp.config.McfCoreConfig,\
+io.github.forezp.config.McfCoreConfig.McfConsulConfig,\
+io.github.forezp.config.McfCoreConfig.MeteEurekaConfig

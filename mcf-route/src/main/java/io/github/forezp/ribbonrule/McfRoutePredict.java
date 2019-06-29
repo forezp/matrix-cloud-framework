@@ -11,8 +11,11 @@ import io.github.forezp.entity.RouteRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.consul.discovery.ConsulServer;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,6 +23,8 @@ import java.util.Map;
  */
 
 public class McfRoutePredict extends AbstractServerPredicate {
+
+    Logger logger=LoggerFactory.getLogger(McfRoutePredict.class);
 
     private ConfigLoader configLoader;
 
@@ -30,7 +35,7 @@ public class McfRoutePredict extends AbstractServerPredicate {
         this.routeAdapter = routeAdapter;
     }
 
-    Logger logger = LoggerFactory.getLogger(McfRoutePredict.class);
+
 
     @Override
     public boolean apply(PredicateKey predicateKey) {
@@ -41,8 +46,26 @@ public class McfRoutePredict extends AbstractServerPredicate {
 
     private boolean doApply(Server server) {
         logger.info(server.getHost() + ":" + server.getPort() + server.getMetaInfo().getAppName());
-        return routeAdapter.apply(server, configLoader.getRouteRule());
+        return routeAdapter.apply(server, getCandidateRouteRule(server));
     }
 
+
+    private RouteRule getCandidateRouteRule(Server server){
+        String serverName=server.getMetaInfo().getAppName();
+        logger.info("serverName:"+serverName);
+        if(StringUtils.isEmpty(serverName)){
+          return null;
+        }
+        List<RouteRule> list=configLoader.getRouteRule();
+        if(!CollectionUtils.isEmpty(list)){
+            for (RouteRule routeRule:list){
+                if(serverName.equals(routeRule.getName())){
+                    return routeRule;
+                }
+
+            }
+        }
+        return null;
+    }
 
 }

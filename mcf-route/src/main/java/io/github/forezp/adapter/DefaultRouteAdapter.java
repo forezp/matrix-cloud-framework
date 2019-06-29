@@ -29,19 +29,35 @@ public class DefaultRouteAdapter implements RouteAdapter {
         if (!enabled) {
             return false;
         }
-        return true;
+        enabled = applyRegion(server, routeRule);
+        if (!enabled) {
+            return false;
+        }
 
-//        enabled = applyRegion(server);
-//        if (!enabled) {
-//            return false;
-//        }
-//
 //        enabled = applyAddress(server);
 //        if (!enabled) {
 //            return false;
 //        }
+        return enabled;
 //
 //        return applyStrategy(server);
+    }
+
+    private boolean applyRegion(Server server, RouteRule routeRule) {
+        String routeRegion = routeRule.getRegion();
+        if (StringUtils.isEmpty(routeRegion)) {
+            return true;
+        }
+        String serverRegion = getRegion(server);
+        if (StringUtils.isEmpty(serverRegion)) {
+            return false;
+        }
+
+        List<String> routeRegions = Arrays.asList(routeRegion.split(RouteConstant.SEPERATE_COMMA));
+        if (routeRegions.contains(serverRegion)) {
+            return true;
+        }
+        return false;
     }
 
     @SuppressWarnings("unchecked")
@@ -52,7 +68,7 @@ public class DefaultRouteAdapter implements RouteAdapter {
             return true;
         }
         String serverVersion = getVersionValue(server);
-        if(StringUtils.isEmpty(serverVersion)){
+        if (StringUtils.isEmpty(serverVersion)) {
             return false;
         }
         List<String> routeVersions = Arrays.asList(routeVersion.split(RouteConstant.SEPERATE_COMMA));
@@ -67,6 +83,15 @@ public class DefaultRouteAdapter implements RouteAdapter {
         return meteData.get(RouteConstant.VERSION);
     }
 
+    private String getRegion(Server server) {
+        Map<String, String> meteData = pluginAdapter.getMetaData(server);
+        return meteData.get(RouteConstant.REGION);
+    }
+
+    private String getHost(Server server) {
+        Map<String, String> meteData = pluginAdapter.getMetaData(server);
+        return meteData.get(RouteConstant.GROUP);
+    }
 //    @SuppressWarnings("unchecked")
 //    private boolean applyRegion(Server server) {
 //        String regionValue = getRegionValue(server);

@@ -14,8 +14,4 @@ public class McfRouteApplication {
 	}
 
 
-	@Bean
-	public IRule routeRule(){
-		return new McfRouteRule();
-	}
 }

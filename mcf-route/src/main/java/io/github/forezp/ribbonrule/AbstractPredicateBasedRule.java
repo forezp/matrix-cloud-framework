@@ -5,6 +5,7 @@ import com.google.common.base.Optional;
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.PredicateBasedRule;
 import com.netflix.loadbalancer.Server;
+import io.github.forezp.adapter.RouteAdapter;
 import io.github.forezp.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +17,9 @@ public abstract class AbstractPredicateBasedRule extends PredicateBasedRule {
 
     @Autowired
     ConfigLoader configLoader;
+
+    @Autowired
+    RouteAdapter routeAdapter;
 
     @Override
     public Server choose(Object key) {

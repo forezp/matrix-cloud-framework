@@ -14,8 +14,9 @@ public class McfRouteRule extends AbstractPredicateBasedRule {
     private CompositePredicate compositePredicate;
     private McfRoutePredict myBasePredicate;
 
+
     public McfRouteRule() {
-        myBasePredicate = new McfRoutePredict(configLoader);
+        myBasePredicate = new McfRoutePredict(configLoader,routeAdapter);
         AvailabilityPredicate availabilityPredicate = new AvailabilityPredicate(this, null);
         compositePredicate = createCompositePredicate(myBasePredicate, availabilityPredicate);
     }

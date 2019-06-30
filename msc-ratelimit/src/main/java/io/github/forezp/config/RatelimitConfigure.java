@@ -19,7 +19,7 @@ import org.springframework.core.Ordered;
  * Created by forezp on 2019/5/4.
  */
 @Configuration
-@ConditionalOnProperty(havingValue = "rate.limit.enable",matchIfMissing = false)
+@ConditionalOnProperty(name = "rate.limit.enable",havingValue = "true",matchIfMissing = false)
 public class RatelimitConfigure {
 
     @Bean
@@ -51,7 +51,7 @@ public class RatelimitConfigure {
     }
 
     @Bean
-    public FilterRegistrationBean filterRegistrationBean(RateLimitFilter rateLimitFilter){
+    public FilterRegistrationBean rateLimitilterRegistrationBean(RateLimitFilter rateLimitFilter){
         FilterRegistrationBean filterRegistrationBean=new  FilterRegistrationBean(rateLimitFilter);
         filterRegistrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE+1);
         return filterRegistrationBean;

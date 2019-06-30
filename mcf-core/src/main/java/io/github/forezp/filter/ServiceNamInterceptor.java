@@ -1,4 +1,4 @@
-package io.github.forezp.interceptor;
+package io.github.forezp.filter;
 
 import com.alibaba.fastjson.JSON;
 import feign.RequestInterceptor;
@@ -27,6 +27,8 @@ public class ServiceNamInterceptor implements RequestInterceptor {
 
     public void apply(RequestTemplate requestTemplate) {
         Map<String, Collection<String>> headers=requestTemplate.headers();
+//        requestTemplate.path();
+//        requestTemplate.request().
         if(headers!=null&&!StringUtils.isEmpty(serviceName)){
             Collection<String> collection=headers.get(MCF_META_HEADER) ;
             if(collection!=null&&collection.size()>0){

@@ -15,11 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class AbstractPredicateBasedRule extends PredicateBasedRule {
 
 
-    @Autowired
-    ConfigLoader configLoader;
 
-    @Autowired
-    RouteAdapter routeAdapter;
 
     @Override
     public Server choose(Object key) {

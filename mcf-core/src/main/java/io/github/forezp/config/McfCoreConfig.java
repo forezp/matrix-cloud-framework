@@ -1,8 +1,10 @@
 package io.github.forezp.config;
 
 import com.netflix.appinfo.EurekaInstanceConfig;
+import feign.RequestInterceptor;
 import io.github.forezp.discovery.ClientDiscoveryImpl;
 import io.github.forezp.cloud.McfMetaConsulRegiestCustomizer;
+import io.github.forezp.filter.ServiceNamInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -56,4 +58,6 @@ public class McfCoreConfig {
         ClientDiscoveryImpl clientDiscoveryFactory = new ClientDiscoveryImpl( discoveryClient );
         return clientDiscoveryFactory;
     }
+
+
 }

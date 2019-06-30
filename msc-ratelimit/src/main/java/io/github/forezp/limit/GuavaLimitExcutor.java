@@ -38,7 +38,7 @@ public class GuavaLimitExcutor implements LimitExcutor {
         LimitResult limitResult = new LimitResult();
         limitResult.setName(limitEntity.getName());
 
-        boolean access = rateLimiter.tryAcquire(1, 2000, TimeUnit.MILLISECONDS);
+        boolean access = rateLimiter.tryAcquire(1, 200, TimeUnit.MILLISECONDS);
         log.info("name:" + limitEntity.getName() + " access:{}", access);
         if (access) {
             limitResult.setResultType(LimitResult.ResultType.SUCCESS);

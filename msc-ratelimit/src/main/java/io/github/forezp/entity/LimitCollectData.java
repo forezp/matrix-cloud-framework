@@ -8,8 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LimitCollectData {
 
     private String name;
-    private AtomicInteger access;
-    private AtomicInteger refuse;
+    private AtomicInteger access=new AtomicInteger(0);
+    private AtomicInteger refuse=new AtomicInteger(0);
 
     public void accessIncrement(){
         access.incrementAndGet();

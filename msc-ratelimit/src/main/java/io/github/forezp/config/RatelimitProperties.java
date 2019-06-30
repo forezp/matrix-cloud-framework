@@ -29,7 +29,6 @@ import java.util.List;
 @ConfigurationProperties(prefix = "rate.limit")
 public class RatelimitProperties {
 
-
     Boolean enable;
     GlobalLimitRule global;
     List<RatelimitRule> services;

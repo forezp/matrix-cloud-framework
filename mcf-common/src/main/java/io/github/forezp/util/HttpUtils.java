@@ -4,6 +4,7 @@ package io.github.forezp.util;
 import com.alibaba.fastjson.JSON;
 import io.github.forezp.entity.McfMetaData;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -28,17 +29,20 @@ public class HttpUtils {
      */
     public static HttpServletRequest getHttpServletRequest() {
         try {
-            return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            ServletRequestAttributes requestAttributes=(ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            if(requestAttributes!=null){
+                return requestAttributes.getRequest();
+            }
         } catch (Exception e) {
             return null;
         }
+        return null;
     }
 
-    public static McfMetaData getMcfMetaData() {
-        if (getHttpServletRequest() == null || getHeaders(getHttpServletRequest()) == null) {
-            return null;
-        }
-        String mcfMetaDataStr = getHeaders(getHttpServletRequest()).get(MCF_META_HEADER);
+    public static McfMetaData getMcfMetaData(HttpServletRequest httpServletRequest) {
+
+        String mcfMetaDataStr = getHeaders(httpServletRequest).get(MCF_META_HEADER);
+
         if (StringUtils.isEmpty(mcfMetaDataStr)) {
             return null;
         }

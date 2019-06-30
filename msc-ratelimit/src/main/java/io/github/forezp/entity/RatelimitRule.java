@@ -6,8 +6,8 @@ package io.github.forezp.entity;
 public class RatelimitRule {
 
     private String name;
-    private String num;
-    private String second;
+    private Integer num;
+    private Integer second;
     private RatelimitRuleType ratelimitRuleType;
 
     public String getName() {
@@ -18,19 +18,19 @@ public class RatelimitRule {
         this.name = name;
     }
 
-    public String getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(String num) {
+    public void setNum(Integer num) {
         this.num = num;
     }
 
-    public String getSecond() {
+    public Integer getSecond() {
         return second;
     }
 
-    public void setSecond(String second) {
+    public void setSecond(Integer second) {
         this.second = second;
     }
 

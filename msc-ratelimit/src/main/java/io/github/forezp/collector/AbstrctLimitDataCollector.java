@@ -22,6 +22,7 @@ public abstract class AbstrctLimitDataCollector implements LimitDataCollector,In
     DataCollectProperties dataCollectProperties;
 
     protected ConcurrentHashMap<String,LimitCollectData> collectDataMap=new ConcurrentHashMap<>();
+
     ScheduledExecutorService scheduledExecutorService;
 
     @Override

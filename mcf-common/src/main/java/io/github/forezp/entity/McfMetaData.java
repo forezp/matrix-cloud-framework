@@ -1,6 +1,7 @@
 package io.github.forezp.entity;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * Created by forezp on 2019/5/2.
@@ -13,7 +14,7 @@ public class McfMetaData implements Serializable{
     private String svcTarget;
     private String[] svcTargetTags;
     private String userId;
-    private String traceId;
+    private String requstId;
 
     public SvcInstance getSvcSource() {
         return svcSource;
@@ -47,11 +48,15 @@ public class McfMetaData implements Serializable{
         this.userId = userId;
     }
 
-    public String getTraceId() {
-        return traceId;
-    }
 
-    public void setTraceId(String traceId) {
-        this.traceId = traceId;
+    @Override
+    public String toString() {
+        return "McfMetaData{" +
+                "svcSource=" + svcSource +
+                ", svcTarget='" + svcTarget + '\'' +
+                ", svcTargetTags=" + Arrays.toString(svcTargetTags) +
+                ", userId='" + userId + '\'' +
+                ", requstId='" + requstId + '\'' +
+                '}';
     }
 }

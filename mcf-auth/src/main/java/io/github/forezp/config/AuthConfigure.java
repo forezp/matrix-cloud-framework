@@ -42,7 +42,7 @@ public class AuthConfigure {
 
     @Bean
 
-    public FilterRegistrationBean filterRegistrationBean(AuthFilter authChecker){
+    public FilterRegistrationBean authFilterRegistrationBean(AuthFilter authChecker){
         FilterRegistrationBean filterRegistrationBean=new  FilterRegistrationBean(authChecker);
         filterRegistrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return filterRegistrationBean;

@@ -55,8 +55,8 @@ public class RedisLimitExcutor implements LimitExcutor {
         log.info( "Access try count is {} for key={}", count, key );
 //        return count != 0;
         LimitResult result=new LimitResult();
-        result.setUrl(key);
-        result.setIdenfier(identifier);
+        result.setName(key);
+
         if(count!=0){
            result.setResultType(LimitResult.ResultType.SUCCESS);
         }else {

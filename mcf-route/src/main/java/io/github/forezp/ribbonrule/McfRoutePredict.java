@@ -45,7 +45,7 @@ public class McfRoutePredict extends AbstractServerPredicate {
 
 
     private boolean doApply(Server server) {
-        logger.info(server.getHost() + ":" + server.getPort() + server.getMetaInfo().getAppName());
+        logger.info(server.getHost() + ":" + server.getPort() + ":" +server.getMetaInfo().getAppName());
         return routeAdapter.apply(server, getCandidateRouteRule(server));
     }
 

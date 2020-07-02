@@ -16,6 +16,16 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
+	<modules>
+		<module>examples</module>
+		<module>mcf-common</module>
+		<module>mcf-core</module>
+		<module>mcf-auth</module>
+		<module>mcf-route</module>
+		<module>msc-ratelimit</module>
+		<module>mcf-examples</module>
+	</modules>
+
 	<dependencies>
 
 	</dependencies>

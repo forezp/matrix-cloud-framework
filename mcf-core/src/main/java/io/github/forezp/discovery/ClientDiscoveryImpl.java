@@ -51,7 +51,7 @@ public class ClientDiscoveryImpl  {
                     Map<String, String> map= serviceInstance.getMetadata();
                     Set<Map.Entry<String,String>> set=map.entrySet();
                     for(Map.Entry<String,String> entry:set){
-                        LOG.info("key:{},value:{}",entry.getKey(),entry.getValue());
+                       // LOG.info("key:{},value:{}",entry.getKey(),entry.getValue());
                     }
                 }
             }

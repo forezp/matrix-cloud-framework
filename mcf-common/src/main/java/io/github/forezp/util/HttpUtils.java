@@ -3,6 +3,7 @@ package io.github.forezp.util;
 
 import com.alibaba.fastjson.JSON;
 import io.github.forezp.entity.McfMetaData;
+
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -15,10 +16,7 @@ import java.util.Map;
 
 import static io.github.forezp.constant.McfConstant.MCF_META_HEADER;
 
-/**
- * @author: xufei.
- * @createTime: 2017/5/27.
- */
+
 public class HttpUtils {
 
 

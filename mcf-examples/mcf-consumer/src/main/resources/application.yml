@@ -24,9 +24,9 @@ server:
 #    second: 11
 
 
-mcf.route.enable: true
-mcf.route.services:
-  - name: mcf-provider
-    version: 1.0
-    region: dev
-    group: example-service-group
+#mcf.route.enable: true
+#mcf.route.services:
+#  - name: mcf-provider
+#    version: 1.0
+#    region: dev
+#    group: example-service-group1

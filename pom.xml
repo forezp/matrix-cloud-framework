@@ -17,7 +17,6 @@
 	</properties>
 
 	<modules>
-		<module>examples</module>
 		<module>mcf-common</module>
 		<module>mcf-core</module>
 		<module>mcf-auth</module>

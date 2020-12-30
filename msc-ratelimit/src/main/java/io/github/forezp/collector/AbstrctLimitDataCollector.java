@@ -41,9 +41,7 @@ public abstract class AbstrctLimitDataCollector implements LimitDataCollector,In
                 limitCollectData.accessIncrement();
                 break;
         }
-
     }
-
 
     @Override
     public void destroy()throws Exception {
@@ -59,7 +57,6 @@ public abstract class AbstrctLimitDataCollector implements LimitDataCollector,In
                 dataCollectProperties.getCollectPeriod() , TimeUnit.MILLISECONDS);
     }
 
-
     class ReportTask implements Runnable{
 
         @Override
@@ -67,5 +64,4 @@ public abstract class AbstrctLimitDataCollector implements LimitDataCollector,In
             reportData();
         }
     }
-
 }

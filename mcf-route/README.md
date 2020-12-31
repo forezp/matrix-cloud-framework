@@ -26,3 +26,23 @@ mcf.route.services:
     group: example-group
     
 ```
+
+# header stra
+
+```
+{
+"global":"{
+
+
+}"
+
+}
+
+
+```
+
+
+```
+
+
+```

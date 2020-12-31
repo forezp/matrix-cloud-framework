@@ -1,7 +1,9 @@
 package io.github.forezp.client.impl;
 
 import com.alibaba.fastjson.JSON;
-import io.github.forezp.ApacheSyncClientExecutor;
+import io.github.forezp.HttpAsyncClientExecutor;
+import io.github.forezp.HttpClientExecutor;
+
 import io.github.forezp.ResonseCallBack;
 import io.github.forezp.client.NacosClient;
 import io.github.forezp.client.dto.NameSpaceDto;
@@ -23,7 +25,7 @@ public class NacosClientImpl implements NacosClient {
     private String NacosApiUrl;
 
     @Autowired
-    ApacheSyncClientExecutor httpClientExecutor;
+    HttpClientExecutor httpClientExecutor;
 
     public String createNamespace(String customNamespaceId, String namespaceName, String namespaceDesc) {
         String url = NacosApiUrl + "/nacos/v1/console/namespaces";
@@ -65,7 +67,12 @@ public class NacosClientImpl implements NacosClient {
     @Override
     public String deleteNamespaces(String namespaceId) {
         String url = NacosApiUrl + "/nacos/v1/console/namespaces";
-        return null;
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("namespaceId", namespaceId);
+        ResonseCallBack.DEAULT deault = new ResonseCallBack.DEAULT();
+        httpClientExecutor.deleteForm(url, paras, deault);
+        logger.info(deault.getData());
+        return deault.getData();
     }
 
     @Override
@@ -93,13 +100,22 @@ public class NacosClientImpl implements NacosClient {
         ResonseCallBack.DEAULT deault = new ResonseCallBack.DEAULT();
         httpClientExecutor.putForm(url, paras, deault);
         logger.info(deault.getData());
+
         return deault.getData();
     }
 
     @Override
     public String deleteConfigs(String tenant, String dataId, String group) {
         String url = NacosApiUrl + "/nacos/v1/cs/configs";
-        return null;
+
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("tenant", tenant);
+        paras.put("dataId", dataId);
+        paras.put("group", group);
+        ResonseCallBack.DEAULT deault = new ResonseCallBack.DEAULT();
+        httpClientExecutor.deleteForm(url, paras, deault);
+        logger.info(deault.getData());
+        return deault.getData();
     }
 
 }

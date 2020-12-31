@@ -1,0 +1,14 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: mcf-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.186.155.178:8848
+      config:
+        server-addr: 139.186.155.178:8848
+        file-extension: yml
+  profiles:
+    active: dev

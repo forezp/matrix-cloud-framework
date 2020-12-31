@@ -1,16 +1,26 @@
 spring:
   application:
     name: mcf-consumer
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        serviceName: mcf-consumer
+
   cloud:
-    consul:
-      host: localhost
-      port: 8500
+    nacos:
       discovery:
-        serviceName: mcf-consumer
+        server-addr: 139.186.155.178:8848
 server:
   port: 8762
 
 
+spring.cloud.nacos.discovery.metadata.group: example-service-group
+spring.cloud.nacos.discovery.metadata.version: 1.0
+spring.cloud.nacos.discovery.metadata.region: dev
+spring.cloud.nacos.discovery.metadata.env: env1
+spring.cloud.nacos.discovery.metadata.zone: zone1
 
 #rate.limit.enable: true
 #rate.limit.global.num: 100

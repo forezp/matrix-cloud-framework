@@ -1,14 +1,10 @@
-server:
-  port: 8761
-spring:
-  application:
-    name: mcf-provider
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        serviceName: mcf-provider
+
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        serviceName: mcf-provider
+
+
 
 auth.service.enable: true
 auth.service.white: mcf-consumer

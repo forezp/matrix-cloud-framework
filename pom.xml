@@ -23,6 +23,7 @@
 		<module>mcf-route</module>
 		<module>msc-ratelimit</module>
 		<module>mcf-examples</module>
+		<module>mcf-admin</module>
 	</modules>
 
 	<dependencies>

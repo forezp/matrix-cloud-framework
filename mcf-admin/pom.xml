@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>io.github.forezp</groupId>
+	<artifactId>mcf-admin</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>mcf-amdin</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<druid.boot.version>1.1.10</druid.boot.version>
+		<mysql.version>5.1.38</mysql.version>
+		<swagger.version>2.2.2</swagger.version>
+		<scrorpio.version>1.0.1</scrorpio.version>
+		<velocity.version>2.0</velocity.version>
+		<freemaker.version>2.3.23</freemaker.version>
+		<jjwt.version>0.7.0</jjwt.version>
+		<caffeine.version>2.6.2</caffeine.version>
+		<activiti.version>5.22.0</activiti.version>
+		<apache.xmlgraphics.version>1.7</apache.xmlgraphics.version>
+		<c3p0.version>0.9.5.2</c3p0.version>
+		<hibernate-validator.version>5.3.4.Final</hibernate-validator.version>
+		<matrix-threadpool.version>1.2</matrix-threadpool.version>
+		<matrix-http-starter.version>1.4</matrix-http-starter.version>
+		<dozer.version>5.5.1</dozer.version>
+		<durid.version>1.1.10</durid.version>
+		<fastjson.version>1.2.31</fastjson.version>
+		<lombok.version>1.16.20</lombok.version>
+		<mybatis.version>3.5.1</mybatis.version>
+		<mybatisplus.spring.boot.version>3.1.2</mybatisplus.spring.boot.version>
+		<mybatisplus.version>3.1.2</mybatisplus.version>
+		<sharding-jdbc.version>3.1.0.M1</sharding-jdbc.version>
+		<HikariCP.version>3.3.1</HikariCP.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+			<version>${caffeine.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.forezp</groupId>
+			<artifactId>matrix-threadpool-starter</artifactId>
+			<version>${matrix-threadpool.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate.validator</groupId>
+					<artifactId>hibernate-validator</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.1.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>${durid.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.shardingsphere</groupId>
+			<artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+			<version>${sharding-jdbc.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatisplus.spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+
+		<!--swagger-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+
+		<!--工具类-->
+
+		<!--jwt-->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jjwt.version}</version>
+		</dependency>
+
+		<!--lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--redis-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.forezp/matrix-http-starter -->
+		<dependency>
+			<groupId>io.github.forezp</groupId>
+			<artifactId>matrix-http-starter</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+
+	</dependencies>
+
+
+
+</project>

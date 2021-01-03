@@ -1,4 +1,4 @@
-//package io.github.forezp.ns.controller;
+//package io.github.forezp.module.ns.controller;
 //
 //
 //import io.github.forezp.client.NacosClient;

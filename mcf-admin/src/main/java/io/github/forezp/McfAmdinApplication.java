@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan({"io.github.forezp.ns"})
+@MapperScan({"io.github.forezp.module.ns"})
 
 public class McfAmdinApplication {
 

@@ -1,4 +1,4 @@
-package io.github.forezp.respository.controller;
+package io.github.forezp.module.respository.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

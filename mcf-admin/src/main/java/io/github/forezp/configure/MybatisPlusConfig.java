@@ -1,5 +1,5 @@
 
-package io.github.forezp.config;
+package io.github.forezp.configure;
 
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;

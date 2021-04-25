@@ -21,7 +21,7 @@ rate.limit.services:
     num: 1
     second: 2
 
-spring.cloud.consul.discovery.tags: group=example-service-group,version=1.0,region=dev,userid=forezp
+#spring.cloud.consul.discovery.tags: group=example-service-group,version=1.0,region=dev,userid=forezp
 
 
 

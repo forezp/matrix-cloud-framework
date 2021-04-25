@@ -1,0 +1,27 @@
+swr_cluster_id: test-clu
+swr_namespace_id: test-ns
+swr_app_id: test-provider
+swr_app_version: 1.1
+swr_service_name: provider
+swr_instance_id: test-si
+swr_group_id: test-sg
+version: 1.1
+group: test-g
+
+
+swr.auth.enable: true
+swr.auth.whites:
+  - swr_service_name: consumer
+    swr_app_version: 1.1
+
+swr.limit.type: local
+swr.limit.enable: true
+swr.limit.global.num: 3
+swr.limit.global.second: 3
+swr.limit.services:
+    - name: provider
+      num: 1
+      second: 3
+    - name: consumer
+      num: 1
+      second: 3

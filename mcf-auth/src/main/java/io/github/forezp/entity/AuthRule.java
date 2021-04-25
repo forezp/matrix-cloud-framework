@@ -1,34 +1,35 @@
 package io.github.forezp.entity;
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
-/**
- * 规则：黑名单或者白名单，互斥
- * Created by forezp on 2019/5/2.
- */
-public class AuthRule implements Serializable{
+public class AuthRule {
+    Boolean enable;
+    List<AuthInstance> blacks;
+    List<AuthInstance> whites;
 
-    private static final long serialVersionUID = 3346648245119125021L;
 
-    private Map<String,List<SvcInstance>> blackMap;
-    private  Map<String,List<SvcInstance>> whiteMap;
-
-    public Map<String, List<SvcInstance>> getBlackMap() {
-        return blackMap;
+    public List<AuthInstance> getBlacks() {
+        return blacks;
     }
 
-    public void setBlackMap(Map<String, List<SvcInstance>> blackMap) {
-        this.blackMap = blackMap;
+    public void setBlacks(List<AuthInstance> blacks) {
+        this.blacks = blacks;
+    }
+
+    public List<AuthInstance> getWhites() {
+        return whites;
+    }
+
+    public void setWhites(List<AuthInstance> whites) {
+        this.whites = whites;
     }
 
 
-    public Map<String, List<SvcInstance>> getWhiteMap() {
-        return whiteMap;
+    public Boolean getEnable() {
+        return enable;
     }
 
-    public void setWhiteMap(Map<String, List<SvcInstance>> whiteMap) {
-        this.whiteMap = whiteMap;
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
     }
 }

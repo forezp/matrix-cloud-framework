@@ -1,5 +1,6 @@
 package io.github.forezp.loader;
 
+
 import io.github.forezp.entity.AuthRule;
 
 /**

@@ -1,61 +1,38 @@
 package io.github.forezp.entity;
 
-import java.io.Serializable;
+import java.util.List;
 
 /**
- * Created by forezp on 2019/5/21.
+ * 路由规则：
+ * swr.route.enable: true
+ * swr.route.services:
+ *  - swr_service_name：provider
+ *    swr_app_version: 1.0,1.1
+ *    swr_instance_id:
+ *    swr_group_id:
+ *    swr_local_ip:
+ *    zone:
+ *    region:
  */
-public class RouteRule implements Serializable{
 
-    private static final long serialVersionUID = 1356648445119125021L;
+public class RouteRule {
+    private Boolean enable;
+    private List<RouteEntity> services;
 
-    private String name;
-
-    private String host;
-
-    private String version;
-
-    private String region;
-
-    private String group;
-
-    public String getHost() {
-        return host;
+    public Boolean getEnable() {
+        return enable;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
     }
 
-    public String getVersion() {
-        return version;
+    public List<RouteEntity> getServices() {
+        return services;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setServices(List<RouteEntity> services) {
+        this.services = services;
     }
 
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
 }

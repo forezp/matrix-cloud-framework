@@ -1,0 +1,20 @@
+swr_cluster_id: test-clu
+swr_namespace_id: test-ns
+swr_app_id: test-consumewr
+swr_app_version: 1.1
+swr_service_name: consumer
+swr_instance_id: test-si2
+swr_group_id: test-sg2
+version: 1.1
+group: test-g
+
+
+swr.route.enable: true
+swr.route.services:
+   - swr_service_name: provider
+     swr_app_version: 1.2
+     swr_instance_id:
+     swr_group_id:
+     swr_local_ip:
+     zone:
+     region:

@@ -4,8 +4,8 @@ import com.netflix.loadbalancer.AbstractServerPredicate;
 import com.netflix.loadbalancer.AvailabilityPredicate;
 import com.netflix.loadbalancer.CompositePredicate;
 import io.github.forezp.adapter.RouteAdapter;
-import io.github.forezp.config.ConfigLoader;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.github.forezp.discovery.PluginAdapter;
+import io.github.forezp.loader.RouteRuleLoader;
 
 
 /**
@@ -15,16 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class McfRouteRule extends AbstractPredicateBasedRule {
 
 
-
     private CompositePredicate compositePredicate;
     private McfRoutePredict myBasePredicate;
 
-    public McfRouteRule(){
+    public McfRouteRule() {
 
     }
 
-    public McfRouteRule(ConfigLoader configLoader,RouteAdapter routeAdapter) {
-        myBasePredicate = new McfRoutePredict(configLoader, routeAdapter);
+    public McfRouteRule(RouteRuleLoader configLoader, RouteAdapter routeAdapter, PluginAdapter pluginAdapter) {
+        myBasePredicate = new McfRoutePredict(configLoader, routeAdapter, pluginAdapter);
         AvailabilityPredicate availabilityPredicate = new AvailabilityPredicate(this, null);
         compositePredicate = createCompositePredicate(myBasePredicate, availabilityPredicate);
     }

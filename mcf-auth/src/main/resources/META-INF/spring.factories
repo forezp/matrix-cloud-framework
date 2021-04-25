@@ -1,3 +1,12 @@
 ## AutoConfiguration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.forezp.config.AuthConfigure
+io.github.forezp.configure.AuthConfigure,\
+io.github.forezp.configure.RegistryAutoConfiguration
+
+## AutoConfiguration
+org.springframework.context.ApplicationContextInitializer=\
+io.github.forezp.registry.RegistryContextInitializer
+
+
+
+

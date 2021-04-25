@@ -1,6 +1,7 @@
 package io.github.forezp.checker;
 
 import io.github.forezp.entity.AuthCheckResult;
+import io.github.forezp.entity.AuthRule;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,5 +10,5 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface AuthChecker {
 
-    AuthCheckResult check(HttpServletRequest httpServletRequest);
+    AuthCheckResult check(HttpServletRequest httpServletRequest,AuthRule authRule);
 }

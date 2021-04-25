@@ -3,20 +3,18 @@ package io.github.forezp.ribbonrule;
 import com.netflix.loadbalancer.AbstractServerPredicate;
 import com.netflix.loadbalancer.PredicateKey;
 import com.netflix.loadbalancer.Server;
-import io.github.forezp.adapter.PluginAdapter;
 import io.github.forezp.adapter.RouteAdapter;
-import io.github.forezp.config.ConfigLoader;
-import io.github.forezp.config.McfCoreConfig;
+import io.github.forezp.discovery.PluginAdapter;
 import io.github.forezp.entity.RouteRule;
+import io.github.forezp.loader.RouteRuleLoader;
+import io.github.forezp.entity.RouteEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.consul.discovery.ConsulServer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by forezp on 2019/5/18.
@@ -24,17 +22,20 @@ import java.util.Map;
 
 public class McfRoutePredict extends AbstractServerPredicate {
 
-    Logger logger=LoggerFactory.getLogger(McfRoutePredict.class);
+    Logger logger = LoggerFactory.getLogger(McfRoutePredict.class);
 
-    private ConfigLoader configLoader;
+    private RouteRuleLoader ruleLoader;
 
     private RouteAdapter routeAdapter;
 
-    public McfRoutePredict(ConfigLoader configLoader, RouteAdapter routeAdapter) {
-        this.configLoader = configLoader;
-        this.routeAdapter = routeAdapter;
-    }
+    @Autowired
+    PluginAdapter pluginAdapter;
 
+    public McfRoutePredict(RouteRuleLoader ruleLoader, RouteAdapter routeAdapter, PluginAdapter pluginAdapter) {
+        this.ruleLoader = ruleLoader;
+        this.routeAdapter = routeAdapter;
+        this.pluginAdapter = pluginAdapter;
+    }
 
 
     @Override
@@ -45,24 +46,27 @@ public class McfRoutePredict extends AbstractServerPredicate {
 
 
     private boolean doApply(Server server) {
-        logger.info(server.getHost() + ":" + server.getPort() + ":" +server.getMetaInfo().getAppName());
-        return routeAdapter.apply(server, getCandidateRouteRule(server));
+        boolean result = routeAdapter.apply(server, getCandidateRouteRule(server));
+        logger.info("route apply:" + server.getHost() + ":" + server.getPort() + ":" + server.getMetaInfo().getAppName() + ",result:" + result);
+        return result;
     }
 
 
-    private RouteRule getCandidateRouteRule(Server server){
-        String serverName=server.getMetaInfo().getAppName();
-        logger.info("serverName:"+serverName);
-        if(StringUtils.isEmpty(serverName)){
-          return null;
+    private RouteEntity getCandidateRouteRule(Server server) {
+        String serverName = pluginAdapter.getServiceName(server);
+        if (StringUtils.isEmpty(serverName)) {
+            return null;
         }
-        List<RouteRule> list=configLoader.getRouteRule();
-        if(!CollectionUtils.isEmpty(list)){
-            for (RouteRule routeRule:list){
-                if(serverName.equals(routeRule.getName())){
-                    return routeRule;
+        RouteRule routeRule = ruleLoader.loadRouteRule();
+        if (routeRule.getEnable() == null || !routeRule.getEnable()) {
+            return null;
+        }
+        List<RouteEntity> list = routeRule.getServices();
+        if (!CollectionUtils.isEmpty(list)) {
+            for (RouteEntity routeEntity : list) {
+                if (serverName.equals(routeEntity.getSwr_service_name())) {
+                    return routeEntity;
                 }
-
             }
         }
         return null;

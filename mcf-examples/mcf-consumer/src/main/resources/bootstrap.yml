@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8845
+      config:
+        server-addr: 127.0.0.1:8845
+        file-extension: yml
+
+server:
+  port: 8762
+
+feign:
+  hystrix:
+    enabled: true
+
+spring.cloud.nacos.discovery.metadata.group: example-service-group
+spring.cloud.nacos.discovery.metadata.version: 1.0
+spring.cloud.nacos.discovery.metadata.region: dev
+spring.cloud.nacos.discovery.metadata.env: env1
+spring.cloud.nacos.discovery.metadata.zone: zone1
+
+spring.profiles.active: nacos
+
+

@@ -1,0 +1,49 @@
+
+server:
+  port: 5000
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8845
+      config:
+        server-addr: 127.0.0.1:8845
+        file-extension: yml
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: provider
+          uri: lb://provider
+          predicates:
+            - Path=/provider/**
+          filters:
+            - StripPrefix=1
+        - id: consumer
+          uri: lb://consumer
+          predicates:
+            - Path=/consumer/**
+          filters:
+            - StripPrefix=1
+
+
+  main:
+    allow-bean-definition-overriding: true
+
+swr_cluster_id: test-clu
+swr_namespace_id: test-ns
+swr_app_id: test-gateway
+swr_app_version: 1.1
+swr_service_name: gateway
+swr_instance_id: test-si212
+swr_group_id: test-sg22
+version: 1.1
+group: test-g
+
+swr.route.enable: true

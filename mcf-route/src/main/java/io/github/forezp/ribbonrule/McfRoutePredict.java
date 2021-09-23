@@ -58,7 +58,7 @@ public class McfRoutePredict extends AbstractServerPredicate {
             return null;
         }
         RouteRule routeRule = ruleLoader.loadRouteRule();
-        if (routeRule.getEnable() == null || !routeRule.getEnable()) {
+        if (routeRule == null) {
             return null;
         }
         List<RouteEntity> list = routeRule.getServices();

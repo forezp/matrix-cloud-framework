@@ -1,0 +1,11 @@
+## AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.forezp.configure.RatelimitConfigure,\
+io.github.forezp.configure.DataCollectProperties,\
+io.github.forezp.configure.RatelimitProperties
+
+
+
+
+
+

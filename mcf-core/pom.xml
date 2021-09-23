@@ -14,6 +14,7 @@
     <version>${project.parent.version}</version>
     <name>mcf-core</name>
     <description>Demo project for Spring Boot</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -24,6 +25,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -64,10 +76,6 @@
             <artifactId>guava</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>

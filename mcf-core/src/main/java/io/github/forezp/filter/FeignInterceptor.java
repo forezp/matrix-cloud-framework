@@ -6,7 +6,7 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import io.github.forezp.context.SwrContextHolder;
 import io.github.forezp.context.SwrCoreContext;
-import io.github.forezp.entity.Metadata;
+import io.github.forezp.configure.Metadata;
 import io.github.forezp.entity.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import static io.github.forezp.constant.SwrConstants.SWR_META_DATA;
-import static io.github.forezp.constant.SwrConstants.SWR_TAGS;
+import static io.github.forezp.constant.SwrContextConstants.SWR_META_DATA;
+import static io.github.forezp.constant.SwrContextConstants.SWR_TAGS;
 
 /**
  * Created by forezp on 2019/5/2.

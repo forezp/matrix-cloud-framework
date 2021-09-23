@@ -15,6 +15,7 @@ public class MetadataConstants {
     public static final String ZONE = "zone";
     public static final String VERSION = "version";
     public static final String GROUP = "group";
+    
 
     public static final String SPRING_APPLICATION_NAME = "spring.application.name";
 }

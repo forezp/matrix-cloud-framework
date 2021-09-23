@@ -1,4 +1,4 @@
-package io.github.forezp.entity;
+package io.github.forezp.configure;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.commons.util.InetUtils;

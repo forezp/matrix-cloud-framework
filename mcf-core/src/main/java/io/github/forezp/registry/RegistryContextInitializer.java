@@ -5,9 +5,7 @@ import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import io.github.forezp.constant.MetadataConstants;
 import io.github.forezp.context.AbstractApplicationContextInitializer;
 import io.github.forezp.context.SWrContextAware;
-import io.github.forezp.entity.Metadata;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 

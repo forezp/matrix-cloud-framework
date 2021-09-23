@@ -4,8 +4,7 @@ import io.github.forezp.context.SwrContextHolder;
 import io.github.forezp.entity.AuthCheckResult;
 import io.github.forezp.entity.AuthInstance;
 import io.github.forezp.entity.AuthRule;
-import io.github.forezp.entity.Metadata;
-import io.github.forezp.loader.AuthRuleLoader;
+import io.github.forezp.configure.Metadata;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

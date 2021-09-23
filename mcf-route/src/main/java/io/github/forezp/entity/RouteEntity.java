@@ -18,6 +18,7 @@ public class RouteEntity implements Serializable {
     private String region;
     private String zone;
 
+
     public String getSwr_app_version() {
         return swr_app_version;
     }

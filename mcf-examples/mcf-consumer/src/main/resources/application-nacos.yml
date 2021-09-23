@@ -12,7 +12,7 @@ group: test-g
 swr.route.enable: true
 swr.route.services:
    - swr_service_name: provider
-     swr_app_version: 1.2
+     swr_app_version: 1.2;1.1
      swr_instance_id:
      swr_group_id:
      swr_local_ip:

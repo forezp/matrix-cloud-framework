@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.forezp.configure.Metadata,\
+io.github.forezp.configure.RegistryAutoConfiguration

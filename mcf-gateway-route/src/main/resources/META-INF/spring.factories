@@ -1,0 +1,5 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+io.github.forezp.mcfgatewayroute.context.GatewayEnvironmentPostProcessor
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.forezp.mcfgatewayroute.configure.GatewayConfigure

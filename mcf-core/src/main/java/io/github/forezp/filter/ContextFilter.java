@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import io.github.forezp.context.SwrContextHolder;
 import io.github.forezp.context.SwrCoreContext;
-import io.github.forezp.entity.Metadata;
+import io.github.forezp.configure.Metadata;
 import io.github.forezp.entity.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import static io.github.forezp.constant.SwrConstants.SWR_META_DATA;
-import static io.github.forezp.constant.SwrConstants.SWR_TAGS;
+import static io.github.forezp.constant.SwrContextConstants.SWR_META_DATA;
+import static io.github.forezp.constant.SwrContextConstants.SWR_TAGS;
 import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 
 public class ContextFilter extends OncePerRequestFilter {

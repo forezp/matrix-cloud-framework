@@ -1,12 +1,15 @@
 package io.github.forezp.context;
 
-import io.github.forezp.entity.Metadata;
+import io.github.forezp.configure.Metadata;
 import io.github.forezp.entity.Tag;
 import org.apache.commons.collections.map.HashedMap;
+import org.springframework.web.server.ServerWebExchange;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import static io.github.forezp.constant.SwrConstants.*;
+
+import static io.github.forezp.constant.SwrContextConstants.*;
 
 public class SwrCoreContext {
 
@@ -20,6 +23,16 @@ public class SwrCoreContext {
     public void setContext(Map<String, Object> context) {
         this.context = context;
     }
+
+    public ServerWebExchange getServerWebExchange() {
+        Object exchange = this.context.get(GATEWAY_CONTEXT_EXANGE);
+        return (ServerWebExchange) exchange;
+    }
+
+    public void setServerWebExchange(ServerWebExchange exchange) {
+        this.context.put(SWR_TAGS, exchange);
+    }
+
 
     public List<Tag> getTags() {
         Object tags = this.context.get(SWR_TAGS);

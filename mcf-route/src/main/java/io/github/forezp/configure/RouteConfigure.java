@@ -46,7 +46,6 @@ public class RouteConfigure {
     }
 
 
-
     @Bean
     @ConditionalOnClass(NacosConfigManager.class)
     NacosRouteListener nacosRouteListener() {
